@@ -63,6 +63,7 @@ body {
 .board-wrap {
   display: grid;
   place-items: center;
+  position: relative;
 }
 
 #board {
@@ -70,6 +71,39 @@ body {
   height: min(480px, 90vw);
   border: 2px solid var(--border);
   background: #fbfaf7;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(251, 250, 247, 0.9);
+}
+
+.overlay-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 20px;
+  text-align: center;
+  display: grid;
+  gap: 10px;
+  width: min(320px, 85%);
+}
+
+.overlay-title {
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.overlay-text {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.overlay.hidden {
+  display: none;
 }
 
 .controls {

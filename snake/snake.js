@@ -6,6 +6,8 @@
   const restartBtn = document.getElementById("restart");
   const pauseBtn = document.getElementById("pause");
   const pad = document.querySelector(".pad");
+  const welcome = document.getElementById("welcome");
+  const startBtn = document.getElementById("start");
 
   const GRID_SIZE = 20;
   const CELL = canvas.width / GRID_SIZE;
@@ -55,7 +57,7 @@
       food: placeFood(snake, rng),
       score: 0,
       alive: true,
-      paused: false,
+      paused: true,
       rng,
     };
   };
@@ -182,6 +184,12 @@
     renderHud(game);
   };
 
+  const startGame = () => {
+    welcome.classList.add("hidden");
+    game = { ...game, paused: false };
+    renderHud(game);
+  };
+
   document.addEventListener("keydown", (event) => {
     const dir = KEY_DIR[event.key];
     if (dir) {
@@ -204,6 +212,10 @@
 
   pauseBtn.addEventListener("click", () => {
     togglePause();
+  });
+
+  startBtn.addEventListener("click", () => {
+    startGame();
   });
 
   restart();
